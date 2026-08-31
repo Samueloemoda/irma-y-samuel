@@ -1,1 +1,1023 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Irma & Samuel | Nuestra Boda</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --verde: #2f8f5b;
+    --verde-oscuro: #236b43;
+    --lila: #b9a1dc;
+    --crema: #faf8f5;
+    --texto: #333333;
+    --blanco: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--crema);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+    min-height: 100vh;
+}
+
+/* ---------- PORTADA ---------- */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            rgba(185,161,220,.82),
+            rgba(185,161,220,.82)
+        ),
+        linear-gradient(135deg, #cbb8e7, #a890d0);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+}
+
+.hero::before {
+    top: -100px;
+    left: -100px;
+}
+
+.hero::after {
+    bottom: -120px;
+    right: -100px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    padding: 30px;
+    animation: aparecer 1.2s ease;
+}
+
+.foto-principal {
+    width: 170px;
+    height: 170px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 7px solid white;
+    box-shadow: 0 15px 40px rgba(0,0,0,.18);
+    margin-bottom: 25px;
+}
+
+.nombres {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(60px, 13vw, 105px);
+    font-weight: 500;
+    line-height: .85;
+}
+
+.ampersand {
+    font-size: 55px;
+    margin: 10px 0;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.subtitulo {
+    font-size: 14px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.fecha {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    margin-top: 12px;
+}
+
+.boton-principal {
+    display: inline-block;
+    margin-top: 35px;
+    padding: 14px 30px;
+    border: 1px solid rgba(255,255,255,.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    transition: .3s;
+}
+
+.boton-principal:hover {
+    background: white;
+    color: var(--verde);
+}
+
+/* ---------- CONTENEDOR ---------- */
+
+.contenedor {
+    width: min(900px, 92%);
+    margin: auto;
+    background: white;
+    min-height: 100vh;
+}
+
+/* ---------- MENÚ ---------- */
+
+.menu {
+    padding: 70px 30px;
+    text-align: center;
+}
+
+.titulo-seccion {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.linea {
+    width: 70px;
+    height: 1px;
+    background: var(--verde);
+    margin: 20px auto 45px;
+}
+
+.intro {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #777;
+    max-width: 600px;
+    margin: 0 auto 40px;
+}
+
+/* ---------- BOTONES ---------- */
+
+.menu-item {
+    width: 100%;
+    border: none;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0,0,0,.07);
+    cursor: pointer;
+    transition: all .3s ease;
+    text-align: left;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,.11);
+}
+
+.icono {
+    width: 55px;
+    height: 55px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #f4f0f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.menu-texto {
+    flex: 1;
+}
+
+.menu-titulo {
+    color: var(--verde);
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.menu-descripcion {
+    color: #999;
+    font-size: 11px;
+    margin-top: 5px;
+}
+
+.flecha {
+    color: var(--verde);
+    font-size: 25px;
+}
+
+/* ---------- PÁGINAS INTERNAS ---------- */
+
+.pagina {
+    display: none;
+    min-height: 100vh;
+    padding: 60px 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.pagina.activa {
+    display: block;
+    animation: entrar .5s ease;
+}
+
+.pagina::before,
+.pagina::after {
+    content: "✿";
+    position: absolute;
+    color: #d7c9ea;
+    font-size: 100px;
+    opacity: .4;
+    pointer-events: none;
+}
+
+.pagina::before {
+    top: -30px;
+    left: -20px;
+}
+
+.pagina::after {
+    bottom: -30px;
+    right: -20px;
+}
+
+.boton-regresar {
+    border: none;
+    background: none;
+    color: var(--verde);
+    cursor: pointer;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    margin-bottom: 40px;
+}
+
+.contenido-pagina {
+    max-width: 680px;
+    margin: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.contenido-pagina h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 500;
+    text-align: center;
+}
+
+.contenido-pagina .linea {
+    margin-bottom: 45px;
+}
+
+.texto {
+    text-align: center;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.detalle {
+    padding: 20px 0;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.detalle:last-child {
+    border-bottom: none;
+}
+
+.detalle h3 {
+    color: var(--verde);
+    font-size: 15px;
+    margin-bottom: 8px;
+}
+
+.detalle p {
+    color: #555;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* ---------- MAPA / LUGAR ---------- */
+
+.lugar {
+    text-align: center;
+    margin: 35px 0;
+    padding: 30px 20px;
+    background: #fafafa;
+    border-radius: 15px;
+}
+
+.lugar .emoji {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.lugar h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.lugar p {
+    color: #777;
+    line-height: 1.7;
+}
+
+.boton-mapa {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: var(--verde);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-size: 12px;
+}
+
+/* ---------- HISTORIA ---------- */
+
+.historia {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 1.7;
+    text-align: center;
+}
+
+/* ---------- CUENTA REGRESIVA ---------- */
+
+.contador {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 40px 0;
+    flex-wrap: wrap;
+}
+
+.contador-box {
+    width: 100px;
+    padding: 20px 10px;
+    background: #fafafa;
+    border-radius: 12px;
+}
+
+.contador-numero {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    color: var(--verde);
+}
+
+.contador-label {
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #888;
+}
+
+/* ---------- FOOTER ---------- */
+
+.footer {
+    text-align: center;
+    padding: 60px 20px;
+    background: #faf8f5;
+}
+
+.footer-nombres {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+}
+
+.footer p {
+    margin-top: 10px;
+    color: #888;
+    font-size: 12px;
+}
+
+/* ---------- ANIMACIONES ---------- */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media(max-width:600px) {
+
+    .foto-principal {
+        width: 145px;
+        height: 145px;
+    }
+
+    .menu {
+        padding: 55px 18px;
+    }
+
+    .titulo-seccion {
+        font-size: 40px;
+    }
+
+    .pagina {
+        padding: 40px 20px;
+    }
+
+    .contenido-pagina h2 {
+        font-size: 43px;
+    }
+
+    .menu-item {
+        padding: 16px;
+    }
+
+    .menu-titulo {
+        font-size: 15px;
+    }
+
+    .nombres {
+        font-size: 65px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= PORTADA ================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <!-- FOTO TEMPORAL -->
+        <img
+            class="foto-principal"
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=500&q=80"
+            alt="Irma y Samuel">
+
+        <div class="nombres">
+            Irma
+            <div class="ampersand">&</div>
+            Samuel
+        </div>
+
+        <div class="subtitulo">
+            Nuestra boda
+        </div>
+
+        <div class="fecha">
+            28 de Noviembre
+        </div>
+
+        <a href="#menu" class="boton-principal">
+            VER INVITACIÓN
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTENEDOR ================= -->
+
+<main class="contenedor">
+
+
+<!-- ================= MENÚ PRINCIPAL ================= -->
+
+<section id="menu" class="menu">
+
+    <h1 class="titulo-seccion">
+        Bienvenidos
+    </h1>
+
+    <div class="linea"></div>
+
+    <p class="intro">
+        Estamos muy felices de compartir contigo uno de los
+        días más importantes de nuestras vidas.
+    </p>
+
+
+    <button class="menu-item" onclick="abrirPagina('detalles')">
+
+        <div class="icono">✦</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Detalles extras
+            </div>
+
+            <div class="menu-descripcion">
+                Información importante para nuestros invitados
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+    <button class="menu-item" onclick="abrirPagina('ceremonia')">
+
+        <div class="icono">⛪</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Parroquia Sagrado Corazón de Jesús
+            </div>
+
+            <div class="menu-descripcion">
+                Ceremonia religiosa
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+    <button class="menu-item" onclick="abrirPagina('recepcion')">
+
+        <div class="icono">🥂</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Terraza La Palapa GLM
+            </div>
+
+            <div class="menu-descripcion">
+                Recepción y celebración
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+    <button class="menu-item" onclick="abrirPagina('acceso')">
+
+        <div class="icono">📍</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Acceso terraza – Camino al Alemán
+            </div>
+
+            <div class="menu-descripcion">
+                Cómo llegar
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+    <button class="menu-item" onclick="abrirPagina('historia')">
+
+        <div class="icono">♡</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Nuestra historia
+            </div>
+
+            <div class="menu-descripcion">
+                Un poquito de nosotros
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+    <button class="menu-item" onclick="abrirPagina('contador')">
+
+        <div class="icono">♡</div>
+
+        <div class="menu-texto">
+            <div class="menu-titulo">
+                Cuenta regresiva
+            </div>
+
+            <div class="menu-descripcion">
+                Cada vez falta menos
+            </div>
+        </div>
+
+        <div class="flecha">→</div>
+
+    </button>
+
+
+</section>
+
+
+<!-- ================= DETALLES ================= -->
+
+<section id="detalles" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Detalles extras</h2>
+
+        <div class="linea"></div>
+
+        <div class="texto">
+
+            <p>
+                Antes de la llegada del tan anhelado día,
+                agradeceríamos tengan en cuenta los siguientes detalles:
+            </p>
+
+            <div class="detalle">
+                <h3>Código de vestimenta</h3>
+                <p>
+                    No utilizar tonos lila ni grises.
+                </p>
+            </div>
+
+            <div class="detalle">
+                <h3>Confirmación</h3>
+                <p>
+                    Agradeceríamos confirmes tu asistencia
+                    antes del 30 de septiembre.
+                </p>
+            </div>
+
+            <div class="detalle">
+                <h3>Evento para adultos</h3>
+                <p>
+                    Agradecemos tu comprensión al no asistir con niños,
+                    para mayor disfrute de los adultos.
+                </p>
+            </div>
+
+            <div class="detalle">
+                <h3>Licor</h3>
+                <p>
+                    Lleva tu propio licor si deseas tomar.
+                </p>
+            </div>
+
+            <div class="detalle">
+                <h3>Invitación</h3>
+                <p>
+                    Favor de conservar su invitación para
+                    poder acceder al evento.
+                </p>
+            </div>
+
+            <div class="detalle">
+                <h3>Y sobre todo...</h3>
+                <p>
+                    ¡Diviértete y disfruta del evento!
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CEREMONIA ================= -->
+
+<section id="ceremonia" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Ceremonia</h2>
+
+        <div class="linea"></div>
+
+        <div class="lugar">
+
+            <div class="emoji">⛪</div>
+
+            <h3>
+                Parroquia Sagrado Corazón de Jesús
+            </h3>
+
+            <p>
+                Aquí podrás consultar la ubicación y los detalles
+                de nuestra ceremonia religiosa.
+            </p>
+
+            <a
+                class="boton-mapa"
+                href="#"
+                onclick="alert('Aquí colocaremos el enlace de Google Maps')">
+                VER UBICACIÓN
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= RECEPCIÓN ================= -->
+
+<section id="recepcion" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Recepción</h2>
+
+        <div class="linea"></div>
+
+        <div class="lugar">
+
+            <div class="emoji">🥂</div>
+
+            <h3>
+                Terraza La Palapa GLM
+            </h3>
+
+            <p>
+                Aquí celebraremos juntos este momento tan especial.
+            </p>
+
+            <a
+                class="boton-mapa"
+                href="#"
+                onclick="alert('Aquí colocaremos el enlace de Google Maps')">
+                VER UBICACIÓN
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ACCESO ================= -->
+
+<section id="acceso" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Cómo llegar</h2>
+
+        <div class="linea"></div>
+
+        <div class="lugar">
+
+            <div class="emoji">📍</div>
+
+            <h3>
+                Acceso terraza – Camino al Alemán
+            </h3>
+
+            <p>
+                Aquí colocaremos las indicaciones para llegar
+                fácilmente al evento.
+            </p>
+
+            <a
+                class="boton-mapa"
+                href="#"
+                onclick="alert('Aquí colocaremos el enlace de Google Maps')">
+                ABRIR MAPA
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HISTORIA ================= -->
+
+<section id="historia" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Nuestra historia</h2>
+
+        <div class="linea"></div>
+
+        <p class="historia">
+            Aquí escribiremos la historia de Irma y Samuel.
+            <br><br>
+            Desde cómo se conocieron hasta llegar
+            a este momento tan especial.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTADOR ================= -->
+
+<section id="contador" class="pagina">
+
+    <div class="contenido-pagina">
+
+        <button class="boton-regresar" onclick="volver()">
+            ← Volver
+        </button>
+
+        <h2>Cuenta regresiva</h2>
+
+        <div class="linea"></div>
+
+        <p class="texto">
+            Cada vez falta menos para celebrar juntos.
+        </p>
+
+        <div class="contador">
+
+            <div class="contador-box">
+                <div id="dias" class="contador-numero">0</div>
+                <div class="contador-label">Días</div>
+            </div>
+
+            <div class="contador-box">
+                <div id="horas" class="contador-numero">0</div>
+                <div class="contador-label">Horas</div>
+            </div>
+
+            <div class="contador-box">
+                <div id="minutos" class="contador-numero">0</div>
+                <div class="contador-label">Minutos</div>
+            </div>
+
+            <div class="contador-box">
+                <div id="segundos" class="contador-numero">0</div>
+                <div class="contador-label">Segundos</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+    <div class="footer-nombres">
+        Irma & Samuel
+    </div>
+
+    <p>
+        Con amor, esperamos compartir este día contigo.
+    </p>
+
+</footer>
+
+</main>
+
+
+<script>
+
+/* ---------- CAMBIO DE PÁGINAS ---------- */
+
+function abrirPagina(id) {
+
+    document.querySelectorAll('.pagina').forEach(function(pagina) {
+        pagina.classList.remove('activa');
+    });
+
+    document.getElementById('menu').style.display = 'none';
+
+    document.getElementById(id).classList.add('activa');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+function volver() {
+
+    document.querySelectorAll('.pagina').forEach(function(pagina) {
+        pagina.classList.remove('activa');
+    });
+
+    document.getElementById('menu').style.display = 'block';
+
+    document.getElementById('menu').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+
+/* ---------- CUENTA REGRESIVA ---------- */
+
+/*
+   CAMBIAREMOS ESTA FECHA CUANDO ME CONFIRMES
+   EL AÑO Y LA HORA DE LA BODA.
+*/
+
+const fechaBoda = new Date("2026-11-28T18:00:00");
+
+function actualizarContador() {
+
+    const ahora = new Date();
+    const diferencia = fechaBoda - ahora;
+
+    if (diferencia <= 0) {
+        document.getElementById("dias").textContent = "0";
+        document.getElementById("horas").textContent = "0";
+        document.getElementById("minutos").textContent = "0";
+        document.getElementById("segundos").textContent = "0";
+        return;
+    }
+
+    const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+    const horas = Math.floor(
+        (diferencia / (1000 * 60 * 60)) % 24
+    );
+    const minutos = Math.floor(
+        (diferencia / (1000 * 60)) % 60
+    );
+    const segundos = Math.floor(
+        (diferencia / 1000) % 60
+    );
+
+    document.getElementById("dias").textContent = dias;
+    document.getElementById("horas").textContent = horas;
+    document.getElementById("minutos").textContent = minutos;
+    document.getElementById("segundos").textContent = segundos;
+}
+
+actualizarContador();
+
+setInterval(actualizarContador, 1000);
+
+</script>
+
+</body>
+</html>
